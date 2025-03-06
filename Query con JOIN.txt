@@ -22,6 +22,15 @@ AND `degrees`.`level` = 'magistrale';
 
 3. Selezionare tutti i corsi in cui insegna Fulvio Amato (id=44)
 
+SELECT `degrees`.`name`,`teachers`.`name`,`teachers`.`surname`
+FROM `degrees`
+JOIN `courses`
+ON `degrees`.`id` = `courses`.`degree_id`
+JOIN `course_teacher`
+ON `courses`.`id` = `course_teacher`.`course_id`
+JOIN `teachers`
+ON `course_teacher`.`teacher_id` = `teachers`.`id`
+WHERE `teachers`.`id` = 44;
 
 -----------------------------------------------------------------------------------------------
 
